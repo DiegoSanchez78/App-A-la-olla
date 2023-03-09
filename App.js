@@ -166,10 +166,16 @@
   
 // });
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text,View,FlatList, Image,Pressable, Button,SafeAreaView,Iframe} from "react-native";
+import {StyleSheet, Text,View, Image,Pressable,} from "react-native";
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 import React, { useState } from "react";
-import { Selected} from './src/components';
-import CartFinal from './src/screens/CartFinal'
+
+import color from './src/constants/color';
+import { botonStyle } from './src/constants/botons';
+import Pantalla1 from './src/screens/Pantalla1';
+import Pantalla2 from './src/screens/Pantalla2';
+import { List } from './src/components';
 
 
 
@@ -208,26 +214,37 @@ const comidas = [
   },
 ];
 
+SplashScreen.preventAutoHideAsync();
 
 
 const Cart = () => {
   const [cart,setCart] = useState([]);
-  // const [viewProductSelected,setViewProductSelected ]= useState(false)
   console.log("cart items",cart)
   const [shouldShow, setShouldShow] = useState(true);
 
- 
   const total = cart.reduce((a, b) => a + b.precio, 0);
-  
-const[userName ,setUserName]=React.useState();
 
-  const startGameHandler=(selectNumber)=>{
-    setUserName(selectNumber)
-  }
+  const[fontsLoaded] = useFonts({
+    'open-sans':require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold':require('./assets/fonts/OpenSans-Bold.ttf')
+  });
+
+  const onLayoutRootView = React.useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+
+    if (!fontsLoaded) {
+      return null;
+    }
+  
+ 
   
   
   return (
-    <View>
+    <View onLayout={onLayoutRootView}>
       <StatusBar hidden/>
       <View style={styles.containerLogo}>
         <Image style={styles.logo}
@@ -235,7 +252,9 @@ const[userName ,setUserName]=React.useState();
         />
         <Text style={styles.nameApp}>A la olla</Text>
       </View>
-      <Text style={{ textAlign: "center", fontSize: 20 }}>Menu de Lunes a Jueves</Text>
+      <Text style={{ textAlign: "center", fontSize: 20 ,fontFamily: 'open-sans'}}>Menu de Lunes a Jueves</Text>
+
+      {/* <List comidas={comidas} setCart={setCart}/> */}
 
       {comidas.map((item) => (
         <Pressable
@@ -246,8 +265,8 @@ const[userName ,setUserName]=React.useState();
             <Image style={styles.imagen} source={{ uri: item.image }} />
           </View>
           <View  >
-            <Text style={{ fontWeight: "bold", textAlign: "center", }}>Dia {item.day} :</Text>
-            <Text style={{ fontWeight: "bold", textAlign: "center" }}>{item.name} $ {item.precio}</Text>
+            <Text style={{ fontFamily: 'open-sans-bold', textAlign: "center", }}>Dia {item.day} :</Text>
+            <Text style={{ fontFamily: 'open-sans-bold', textAlign: "center" }}>{item.name} $ {item.precio}</Text>
 
             {cart.includes(item) ? (
               <Pressable onPress={() => setCart(cart.filter((x) => x.id !== item.id))}>
@@ -262,17 +281,20 @@ const[userName ,setUserName]=React.useState();
           </View>
         </Pressable>
       ))}
-
-    
      
-          <View style={{ height: 1, borderColor: "gray", borderWidth: 2 }} />
+      <View style={{ height: 1, borderColor: "gray", borderWidth: 2 }} />
 
-      <View style={styles.container}>
-        <Button
-          title="Mostrar lo seleccionado"
-          onPress={() => setShouldShow(!shouldShow)}
+      <View style={styles.container}>      
+        {shouldShow ? (
+          <Pressable onPress={() => { setShouldShow(false) }} >
+            <Text style={styles.botonRemover}>Ocultar seleccionados </Text>
+          </Pressable>
+        ) : (
+          <Pressable  onPress={() => { setShouldShow(true) } }>
+            <Text style={styles.botonAgregar}>Mostrar seleccionados</Text>
+          </Pressable>
+        )}
 
-        />
         {shouldShow ?
           (
             <Text style={{ textAlign: "center", fontSize: 20 }}  >
@@ -281,27 +303,21 @@ const[userName ,setUserName]=React.useState();
                 <View style={{ margin: 2 }} >
                   <Text style={{ textAlign: "center", margin: 3 }}>{item.name} $ {item.precio}{"\n"}</Text>
                 </View>
-
-              ))}
-              <View>
-                <Text>Total: {total}</Text>
-              </View>
-              <Button
-               title="Ir a carrito"
-               onPress={() => {
-                false ? <CartFinal />:<Cart/>
-               }}
-               >
-                 
-              </Button>
+                 ))}
             </Text>
-
           ) : null}
-      <View>
-      {true ? <CartFinal />:<App/>}
-      </View>
+        <View>
+          <Text>Total: {total}</Text>
+        </View>
+        {/* PANTALLAS */}
+        <View >
+          {
+            total
+            ?<Pantalla2 total={!total}/>
+            :<Pantalla1 total={total}/>
+          }
+        </View>        
 
-        
       </View>
     </View>
   );
@@ -329,24 +345,19 @@ const styles = StyleSheet.create({
   nameApp:{
     fontSize:20,
     marginLeft:20,
+    fontFamily: 'open-sans-bold'
   },
   botonAgregar:{
-    borderColor: "gray",
-    borderWidth: 1,
-    marginVertical: 10,
-    padding: 5,
-    borderRadius:20,
-    backgroundColor:'yellow',
-    fontWeight: "bold"
+    ...botonStyle,
+    backgroundColor:color.Boton,
+    fontFamily: 'open-sans-bold'
+    
+    
   },
   botonRemover:{
-    borderColor: "gray",
-    borderWidth: 1,
-    marginVertical: 10,
-    padding: 5,
-    borderRadius:20,
-    backgroundColor:'green',
-    fontWeight: "bold"
+    ...botonStyle,
+    backgroundColor:color.BotonSelected,
+    fontFamily: 'open-sans'
   },
   imagen:{
     width: 200, 
@@ -358,6 +369,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
+    maxHeight:"20%"
     
   },
   

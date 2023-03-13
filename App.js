@@ -175,7 +175,8 @@ import color from './src/constants/color';
 import { botonStyle } from './src/constants/botons';
 import Pantalla1 from './src/screens/Pantalla1';
 import Pantalla2 from './src/screens/Pantalla2';
-import { List } from './src/components';
+import { List, Header } from './src/components';
+import ShowProductsSelected from './src/components/ShowProductsSelected';
 
 
 
@@ -240,85 +241,16 @@ const Cart = () => {
       return null;
     }
   
- 
-  
   
   return (
     <View onLayout={onLayoutRootView}>
-      <StatusBar hidden/>
-      <View style={styles.containerLogo}>
-        <Image style={styles.logo}
-          source={require('../appCoderReacNative/assets/LogoOlla.jpeg')}
-        />
-        <Text style={styles.nameApp}>A la olla</Text>
-      </View>
-      <Text style={{ textAlign: "center", fontSize: 20 ,fontFamily: 'open-sans'}}>Menu de Lunes a Jueves</Text>
+      <StatusBar hidden />
+  
+      <Header/>
+      <List comidas={comidas} setCart={setCart} cart={cart} total={total} />
+      
+      <ShowProductsSelected comidas={comidas} setCart={setCart} cart={cart} total={total} shouldShow={shouldShow} setShouldShow={setShouldShow} />
 
-      {/* <List comidas={comidas} setCart={setCart}/> */}
-
-      {comidas.map((item) => (
-        <Pressable
-          key={item.id}
-          style={{ flexDirection: "row", alignItems: "center" }}
-        >
-          <View style={{ margin: 10 }}>
-            <Image style={styles.imagen} source={{ uri: item.image }} />
-          </View>
-          <View  >
-            <Text style={{ fontFamily: 'open-sans-bold', textAlign: "center", }}>Dia {item.day} :</Text>
-            <Text style={{ fontFamily: 'open-sans-bold', textAlign: "center" }}>{item.name} $ {item.precio}</Text>
-
-            {cart.includes(item) ? (
-              <Pressable onPress={() => setCart(cart.filter((x) => x.id !== item.id))}>
-                <Text style={styles.botonRemover} >Eliminar </Text>
-              </Pressable>
-            ) : (
-              <Pressable onPress={() => setCart([...cart, item])}>
-                <Text style={styles.botonAgregar} >Agregar</Text>
-              </Pressable>
-            )}
-
-          </View>
-        </Pressable>
-      ))}
-     
-      <View style={{ height: 1, borderColor: "gray", borderWidth: 2 }} />
-
-      <View style={styles.container}>      
-        {shouldShow ? (
-          <Pressable onPress={() => { setShouldShow(false) }} >
-            <Text style={styles.botonRemover}>Ocultar seleccionados </Text>
-          </Pressable>
-        ) : (
-          <Pressable  onPress={() => { setShouldShow(true) } }>
-            <Text style={styles.botonAgregar}>Mostrar seleccionados</Text>
-          </Pressable>
-        )}
-
-        {shouldShow ?
-          (
-            <Text style={{ textAlign: "center", fontSize: 20 }}  >
-              {cart.map((item) => (
-
-                <View style={{ margin: 2 }} >
-                  <Text style={{ textAlign: "center", margin: 3 }}>{item.name} $ {item.precio}{"\n"}</Text>
-                </View>
-                 ))}
-            </Text>
-          ) : null}
-        <View>
-          <Text>Total: {total}</Text>
-        </View>
-        {/* PANTALLAS */}
-        <View >
-          {
-            total
-            ?<Pantalla2 total={!total}/>
-            :<Pantalla1 total={total}/>
-          }
-        </View>        
-
-      </View>
     </View>
   );
 };
@@ -346,31 +278,6 @@ const styles = StyleSheet.create({
     fontSize:20,
     marginLeft:20,
     fontFamily: 'open-sans-bold'
-  },
-  botonAgregar:{
-    ...botonStyle,
-    backgroundColor:color.Boton,
-    fontFamily: 'open-sans-bold'
-    
-    
-  },
-  botonRemover:{
-    ...botonStyle,
-    backgroundColor:color.BotonSelected,
-    fontFamily: 'open-sans'
-  },
-  imagen:{
-    width: 200, 
-    height: 100, 
-    borderRadius: 8
-  },
-  container: {
-    backgroundColor: '#FFFFFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 10,
-    maxHeight:"20%"
-    
   },
   
 });

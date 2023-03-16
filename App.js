@@ -166,17 +166,15 @@
   
 // });
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text,View, Image,Pressable,} from "react-native";
+import {StyleSheet, View} from "react-native";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useState } from "react";
+import AppNavigator from './src/navigators/AppNavigator';
 
-import color from './src/constants/color';
-import { botonStyle } from './src/constants/botons';
-import Pantalla1 from './src/screens/Pantalla1';
-import Pantalla2 from './src/screens/Pantalla2';
 import { List, Header } from './src/components';
 import ShowProductsSelected from './src/components/ShowProductsSelected';
+
 
 
 
@@ -219,65 +217,51 @@ SplashScreen.preventAutoHideAsync();
 
 
 const Cart = () => {
-  const [cart,setCart] = useState([]);
-  console.log("cart items",cart)
-  const [shouldShow, setShouldShow] = useState(true);
+  // const [cart,setCart] = useState([]);
+  // console.log("cart items",cart)
+  // const [shouldShow, setShouldShow] = useState(true);
 
-  const total = cart.reduce((a, b) => a + b.precio, 0);
+  // const total = cart.reduce((a, b) => a + b.precio, 0);
 
-  const[fontsLoaded] = useFonts({
-    'open-sans':require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold':require('./assets/fonts/OpenSans-Bold.ttf')
-  });
+  // const[fontsLoaded] = useFonts({
+  //   'open-sans':require('./assets/fonts/OpenSans-Regular.ttf'),
+  //   'open-sans-bold':require('./assets/fonts/OpenSans-Bold.ttf')
+  // });
 
-  const onLayoutRootView = React.useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
+  // const onLayoutRootView = React.useCallback(async () => {
+  //   if (fontsLoaded) {
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [fontsLoaded]);
 
 
-    if (!fontsLoaded) {
-      return null;
-    }
+  //   if (!fontsLoaded) {
+  //     return null;
+  //   }
   
   
   return (
-    <View onLayout={onLayoutRootView}>
-      <StatusBar hidden />
+    <AppNavigator/>
+    // <AppNavigator>
+    // <View onLayout={onLayoutRootView} style={styles.pantalla}>
+    //   <StatusBar hidden />
   
-      <Header/>
-      <List comidas={comidas} setCart={setCart} cart={cart} total={total} />
+    //   <Header/>
+    //   <List comidas={comidas} setCart={setCart} cart={cart} total={total} />
       
-      <ShowProductsSelected comidas={comidas} setCart={setCart} cart={cart} total={total} shouldShow={shouldShow} setShouldShow={setShouldShow} />
-
-    </View>
+      
+    //   <ShowProductsSelected comidas={comidas} setCart={setCart} cart={cart} total={total} shouldShow={shouldShow} setShouldShow={setShouldShow} />
+      
+    // </View>
+    //  </AppNavigator>
   );
 };
 
 export default Cart;
 
 const styles = StyleSheet.create({
-  
-  containerLogo: {
-    width: 70,
-    height: 70,
-    flex: 0,
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    justifyContent:'space-between',
-    alignItems:'center',
-   
-  },
-  logo: {
-    width: "100%",
-    height:"100%",
-    borderRadius:200,
-  },
-  nameApp:{
-    fontSize:20,
-    marginLeft:20,
-    fontFamily: 'open-sans-bold'
-  },
-  
+  // pantalla: {
+  //   backgroundColor:'gray'
+  // }
 });
+

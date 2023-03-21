@@ -5,7 +5,8 @@ import pantalla1 from "../screens/Pantalla1";
 import pantalla2 from "../screens/Pantalla2";
 import ShowProductsSelected from "./ShowProductsSelected";
 import AppNavigator from "../navigators/AppNavigator";
-
+import CartScreen from "../screens/CartScreen";
+import Detail from "../screens/Detail";
 
 export{
     Header,
@@ -13,7 +14,10 @@ export{
     pantalla1,
     pantalla2,
     ShowProductsSelected,
-    AppNavigator
+    AppNavigator,
+    CartScreen,
+    Detail
+
    
    
 }

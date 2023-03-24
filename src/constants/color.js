@@ -1,4 +1,5 @@
-export default {
-    Boton : '#EBEBE7',
-    BotonSelected:'#E4F479'
+export const COLORS = {
+    primary: '#f5428d',
+    accent: '#f54242',
+    black: '#000',
 }

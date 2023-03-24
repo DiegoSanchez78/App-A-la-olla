@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
         borderRadius: 6,
         margin: 15,
-        height: 150,
+        height: 200,
 },
 container: {
     flex: 1,
@@ -32,14 +32,15 @@ container: {
     shadowRadius: 6,
     elevation: 3,
     padding: 8,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end'
 },
 title: {
-    fontSize: 20,
+    fontSize: 40,
+   textAlign:'center',
+   alignSelf:'center'
+   
     // fontFamily: 'open-sans-bold',
 },
 details: {
-    fontSize: 10
+    fontSize: 20
 }
 })

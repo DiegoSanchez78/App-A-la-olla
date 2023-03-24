@@ -1,6 +1,5 @@
 
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 
@@ -14,7 +13,7 @@ const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-   <NavigationContainer>
+  
         <Stack.Navigator initialRouteName="Home"
         screenOptions={{
           headerStyle:{
@@ -29,7 +28,7 @@ const AppNavigator = () => {
          options={({route})=> ({title: route.params.categoryName})}/>
          <Stack.Screen name="Detail" component={Detail}/>
         </Stack.Navigator>
-   </NavigationContainer>
+   
   )
 }
 

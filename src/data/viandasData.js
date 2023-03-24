@@ -5,7 +5,7 @@ export const VIANDASPRODUCT = [
         day:"Lunes",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqg_OBzcVDnKHv1d3hyVk_WlCo43pzit4CJQ&usqp=CAU",
-        name: "icecream",
+        name: "Milanesa con fritas",
         price: 890
       },
       {
@@ -14,7 +14,7 @@ export const VIANDASPRODUCT = [
         day:"Martes",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT85O96gPiso_j2gaS0cePTBY4mCR3pumV6tw&usqp=CAU",
-        name: "biscuit",
+        name: "Pollo al Verdeo",
         price: 700
       },
       {
@@ -23,7 +23,7 @@ export const VIANDASPRODUCT = [
         category:"1",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicQWeRoxxLEr1RLIp8dJtw-NQvSE4xtlhwA&usqp=CAU",
-        name: "chocolate",
+        name: "Asado con ensalada",
         price: 640
       },
       {
@@ -32,7 +32,7 @@ export const VIANDASPRODUCT = [
         day:"Jueves",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicQWeRoxxLEr1RLIp8dJtw-NQvSE4xtlhwA&usqp=CAU",
-        name: "chocolate",
+        name: "Tortilla de verdura",
         price: 950
       },
       {
@@ -41,7 +41,7 @@ export const VIANDASPRODUCT = [
       day:"viernes",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicQWeRoxxLEr1RLIp8dJtw-NQvSE4xtlhwA&usqp=CAU",
-      name: "chocolate",
+      name: "Ensalada verde",
       price: 950
     }
       

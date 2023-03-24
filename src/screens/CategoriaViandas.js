@@ -21,14 +21,8 @@ const renderGridItem = ({ item }) => <ViandasItem item={item} onSelect={onSelect
     data={CATEGORIAS}
     keyExtractor={(item) => item.id}
     renderItem={renderGridItem}
-    numColumns={2}
+    numColumns={1}
 />
-    // <View>
-    //   <Text>Categorias</Text>
-    //   <Button
-    //   title="Elegir categoria"
-    //   onPress={()=> {navigation.navigate('Viandas')}}/>
-    // </View>
   )
 }
 

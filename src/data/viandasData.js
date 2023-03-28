@@ -1,7 +1,7 @@
 export const VIANDASPRODUCT = [
       {
-        id: "0",
-        category:"1",
+        id: 0,
+        categoryId: 1,
         day:"Lunes",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqg_OBzcVDnKHv1d3hyVk_WlCo43pzit4CJQ&usqp=CAU",
@@ -9,8 +9,8 @@ export const VIANDASPRODUCT = [
         price: 890
       },
       {
-        id: "1",
-        category:"1",
+        id: 1,
+        categoryId:1,
         day:"Martes",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT85O96gPiso_j2gaS0cePTBY4mCR3pumV6tw&usqp=CAU",
@@ -18,17 +18,17 @@ export const VIANDASPRODUCT = [
         price: 700
       },
       {
-        id: "2",
+        id: 2,
         day:"Miercoles",
-        category:"1",
+        categoryId:1,
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicQWeRoxxLEr1RLIp8dJtw-NQvSE4xtlhwA&usqp=CAU",
         name: "Asado con ensalada",
         price: 640
       },
       {
-        id: "3",
-        category:"2",
+        id: 3,
+        categoryId:2,
         day:"Jueves",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicQWeRoxxLEr1RLIp8dJtw-NQvSE4xtlhwA&usqp=CAU",
@@ -36,8 +36,8 @@ export const VIANDASPRODUCT = [
         price: 950
       },
       {
-      id: "4",
-      category:"2",
+      id: 4,
+      categoryId:2,
       day:"viernes",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicQWeRoxxLEr1RLIp8dJtw-NQvSE4xtlhwA&usqp=CAU",

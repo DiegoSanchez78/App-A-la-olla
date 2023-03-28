@@ -1,17 +1,29 @@
 import { StyleSheet,FlatList} from 'react-native'
-import React from 'react'
-import { VIANDASPRODUCT } from '../data/viandasData'
+import React  from 'react'
+// import { VIANDASPRODUCT } from '../data/viandasData'
 import ViandasUnidadItem from '../components/ViandasUnidadItem'
+import { useSelector,useDispatch } from 'react-redux'
+import { selectBread, filterViandas} from '../store/actions/viandas.action'
+import { useEffect } from 'react'
 
 const Viandas = ({route ,navigation}) => {
-  const { categoryId } = route.params
+  // const { categoryId } = route.params
 
-  const breads = VIANDASPRODUCT.filter(bread => bread.category === categoryId)
+  // const breads = VIANDASPRODUCT.filter(bread => bread.category === categoryId)
+  const categoryBreads = useSelector(state=>state.breads.filterViandas)
+  const dispatch = useDispatch()
+  const category = useSelector(state=>state.categories.selected)
  
+  useEffect(()=>{
+    dispatch(filterViandas(category.id))
+},[])
+
 
   const handleOnSelected = (item) => {
+    dispatch(selectBread(item.id))
     navigation.navigate('Detail', {
-      bread: item
+      // bread: item
+      name:item.title,
     })
   }
 
@@ -19,7 +31,7 @@ const Viandas = ({route ,navigation}) => {
 
   return (
     <FlatList 
-      data={breads}
+      data={categoryBreads}
       keyExtractor={(item) => item.id}
       renderItem={renderBreadItem}
     />

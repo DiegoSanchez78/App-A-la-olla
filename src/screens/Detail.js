@@ -1,13 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Button } from 'react-native'
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch} from 'react-redux'
+import { addItem } from '../store/actions/cart.action'
 
-const Detail = ({ route, navigation}) => {
+const Detail = () => {
 
   // const { bread } = route.params
 
-  const bread = useSelector(state=>state.breads.selected)
+  const viandaDetail = useSelector(state=>state.breads.selected)
+  const dispatch = useDispatch();
 
+  const onHandleAddToCart = ()=>{
+    console.log('ADD TO CART', viandaDetail);
+    dispatch(addItem({...viandaDetail, quantity:1}))
+}
   // useEffect(() => {
   //   navigation.setOptions({
   //     title: bread.name
@@ -16,10 +22,11 @@ const Detail = ({ route, navigation}) => {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>{bread.name}</Text>
-      <Text>Price: ${bread.price}</Text>
-      {/* <Text>{bread.weight}</Text>
-      <Text>{bread.description}</Text> */}
+      <Text style={styles.title}>{viandaDetail.name}</Text>
+      <Text>Price: ${viandaDetail.price}</Text>
+      <Button title='Agregar Item' onPress={() => {
+                onHandleAddToCart()
+            }}/>
     </View>
   )
 }

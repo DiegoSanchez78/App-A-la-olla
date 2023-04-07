@@ -1,0 +1,1 @@
+export const API_URL = 'https://alaolla-65d8f-default-rtdb.firebaseio.com/';

@@ -20,7 +20,9 @@ const AppNavigator = () => {
             backgroundColor: Platform.OS === 'android'? Colors.primary :''
           },
           headerTintColor:Platform.OS === 'android'? 'white' :Colors.primary,
+          
           }}> 
+         
         
          <Stack.Screen name="Home" component={CategoriaViandas}
          options={{title: 'A la olla'}}/>

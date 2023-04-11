@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,Image} from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'; 
@@ -9,11 +9,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AppNavigator from './AppNavigator'
 import CartNavigator from './CartNavigator'
 import OrderScreen from '../screens/OrderScreen'
+import UserNavigator from './UserNavigator';
+
 
 
 const BottomTabs = createBottomTabNavigator()
 
-const TabsNavigator = () => {
+const TabsNavigator = ({pickedUri}) => {
   return (
     <BottomTabs.Navigator
       initialRouteName="Shop-tab"
@@ -53,6 +55,17 @@ const TabsNavigator = () => {
             </View>
           )
         }}
+      />
+       <BottomTabs.Screen name="User-tab" component={UserNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={styles.tabBarIcon}>
+              <Entypo name="user" size={24} color={focused ? '#7F5DF0' : '#748C94'} />
+              <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>User </Text>
+            </View>
+          )
+        }}
+
       />
     </BottomTabs.Navigator>
   )

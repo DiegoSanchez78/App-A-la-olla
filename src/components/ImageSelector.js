@@ -44,8 +44,13 @@ const ImageSelector = ({onImage}) => {
             <Button
                 title="Tomar foto perfil de Usuario"
                 onPress={handlerTakeImage}
-                
-            />
+                 >
+                    {!pickedUri
+                    ? (<Text>No hay imagen seleccionada...</Text>)
+                    : (<Button title="Tomar foto perfil de Usuario"/>
+                    )
+                }
+                </Button>
         </View>
     )
 }

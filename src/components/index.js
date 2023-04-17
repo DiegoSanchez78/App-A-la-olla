@@ -19,7 +19,8 @@ export{
     AppNavigator,
     CategoriaViandas,
     Viandas,
-    Detail
+    Detail,
+    
 
    
 }

@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View,TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
+
 const ImageItem = ({title,image, address, onSelect}) => {
 
   return (
@@ -41,5 +42,10 @@ const styles = StyleSheet.create({
     address: {
         color: '#777',
         fontSize: 16,
+    },
+    title:{
+        color: 'red',
+        fontSize: 18,
+        marginBottom: 6
     }
 })

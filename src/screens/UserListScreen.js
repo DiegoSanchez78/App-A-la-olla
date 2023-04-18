@@ -10,7 +10,7 @@ const UserListScreen = ({navigation}) => {
         <ImageItem  
             title={data.item.title}
             image={data.item.image}
-            address="Calle falsa 123"
+            address="Imagen usuario"
             onSelect={()=>navigation.navigate("Detalle")}
         />
     )

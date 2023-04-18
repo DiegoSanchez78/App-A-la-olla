@@ -8,7 +8,8 @@ import React from "react";
 
 import MainNavigator from "./src/navigators/MainNavigator";
 import { Provider } from "react-redux";
-import store from "./src/store";
+import { PersistGate } from 'redux-persist/integration/react'
+import {store, storePersisted} from './src/store'
 
 // import { List, Header } from './src/components';
 // import ShowProductsSelected from './src/components/ShowProductsSelected';
@@ -21,7 +22,9 @@ const Cart = () => {
   
   return (
     <Provider store={store}>
-      <MainNavigator />
+      <PersistGate loading={null} persistor={storePersisted}>
+        <MainNavigator />
+      </PersistGate>     
     </Provider>
   );
 };

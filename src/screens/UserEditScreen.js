@@ -25,7 +25,7 @@ const UserEditScreen = ({navigation}) => {
     return (
       <ScrollView>
           <View style={styles.container}>
-               <Text style={styles.label}>Titulo</Text> 
+               <Text style={styles.label}>Ingrese su nombre</Text> 
                <TextInput style={styles.input} onChangeText={titleChangeHandler}/> 
               <ImageSelector onImage={image=>setImageValue(image)} />
               <Button title="Guardar" color={COLORS.primary} onPress={savePlaceHandler} />
@@ -78,5 +78,12 @@ const styles = StyleSheet.create({
   text:{
     fontSize: 18,
     padding: 8
-  }
+  },
+  input: {
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
+    marginBottom: 16,
+    paddingHorizontal: 2,
+    paddingVertical: 4
+}
 })

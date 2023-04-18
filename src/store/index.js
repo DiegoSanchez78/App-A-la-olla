@@ -1,11 +1,19 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import CartReducer from "./reducers/cart.reducer";
+import { persistStore, persistReducer } from 'redux-persist'
 
+import thunk from "redux-thunk";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import CartReducer from "./reducers/cart.reducer";
 import CategoryReducer from "./reducers/category.reducer";
 import ViandasReducer from "./reducers/viandas.reducer";
 import ordersReducer from "./reducers/orders.reducer";
 import ImageReducer from "./reducers/image.reducer";
+
+const persistConfig = {
+    key: 'root',
+    storage: AsyncStorage
+  }
 
 const RootReducer = combineReducers({
     categories:CategoryReducer,
@@ -15,4 +23,7 @@ const RootReducer = combineReducers({
     images : ImageReducer,
 })
 
-export default createStore(RootReducer,applyMiddleware(thunk))
+const persistedReducer = persistReducer(persistConfig, RootReducer)
+
+export const store = createStore(persistedReducer, applyMiddleware(thunk));
+export const storePersisted = persistStore(store);

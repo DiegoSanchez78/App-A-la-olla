@@ -5,8 +5,6 @@ import { addItem } from '../store/actions/cart.action'
 
 const Detail = () => {
 
-  // const { bread } = route.params
-
   const viandaDetail = useSelector(state=>state.breads.selected)
   const dispatch = useDispatch();
 
@@ -14,11 +12,6 @@ const Detail = () => {
     console.log('ADD TO CART', viandaDetail);
     dispatch(addItem({...viandaDetail, quantity:1}))
 }
-  // useEffect(() => {
-  //   navigation.setOptions({
-  //     title: bread.name
-  //   })
-  // },[])
 
   return (
     <View style={styles.screen}>
@@ -41,6 +34,5 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize: 20,
-        // fontFamily: 'OpenSans_700Bold',
     }
 })

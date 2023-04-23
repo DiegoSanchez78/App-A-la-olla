@@ -30,22 +30,8 @@ const UserEditScreen = ({navigation}) => {
               <ImageSelector onImage={image=>setImageValue(image)} />
               <Button title="Guardar" color={COLORS.primary} onPress={savePlaceHandler} />
           </View>
-         
       </ScrollView>
   )
-
-
-  // return (
-  //   <View style={styles.container}>
-  //     <View style={styles.footer}>
-  //       <ImageSelector onImage={image=>console.log(image)}/>
-  //       <Button title='Guardar imagen' onPress={console.log({uri: image})}/>
-  //       <Image  source={{uri: image}}/>
-  //      { console.log({uri: image})}
-  //     </View>
-      
-  //   </View>
-  // )
 }
 
 export default UserEditScreen

@@ -12,7 +12,6 @@ export const getOrders = () => {
                     'Content-Type': 'application/json',
                 }
             });
-            console.log(response)
             const resData = await response.json();
             const orders = Object.keys(resData).map(key => {
                 return {

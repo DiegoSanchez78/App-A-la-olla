@@ -2,16 +2,12 @@ import { StyleSheet, Text, View ,Image} from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'; 
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-
 
 import AppNavigator from './AppNavigator'
 import CartNavigator from './CartNavigator'
 import OrderScreen from '../screens/OrderScreen'
 import UserNavigator from './UserNavigator';
-
-
 
 const BottomTabs = createBottomTabNavigator()
 

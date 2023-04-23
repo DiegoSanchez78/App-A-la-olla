@@ -44,6 +44,7 @@ export const VIANDASPRODUCT = [
       name: "Ensalada verde",
       price: 950
     }
+    
       
     ];
     

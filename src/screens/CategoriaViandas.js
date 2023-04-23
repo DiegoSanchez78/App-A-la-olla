@@ -17,8 +17,6 @@ const CategoriaViandas = ({navigation}) => {
 
 const renderGridItem = ({ item }) => <ViandasItem item={item} onSelect={onSelectGridItem} />
 
-
-
   return (
     <FlatList
     data={categories}

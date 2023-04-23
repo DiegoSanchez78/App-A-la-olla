@@ -22,7 +22,6 @@ const Viandas = ({route ,navigation}) => {
   const handleOnSelected = (item) => {
     dispatch(selectBread(item.id))
     navigation.navigate('Detail', {
-      // bread: item
       name:item.title,
     })
   }

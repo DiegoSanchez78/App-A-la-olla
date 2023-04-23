@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View ,TouchableOpacity} from 'react-native'
 
+
 import React from 'react'
 
 const ViandasItem = ({ item, onSelect }) => {
@@ -7,8 +8,8 @@ const ViandasItem = ({ item, onSelect }) => {
     <View style={styles.viandaItem}>
     <TouchableOpacity onPress={() => onSelect(item)} style={[styles.container, { backgroundColor: item.color}]}>
         <View>
-        <Text style={styles.title}>{item.title}</Text>
-        </View>
+          <Text style={styles.title}>{item.title}</Text>
+       </View>
     </TouchableOpacity>
 </View>
   )

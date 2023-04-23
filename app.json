@@ -4,10 +4,10 @@
     "slug": "appCoderReacNative",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/LogoOlla.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/LogoOlla.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,12 +22,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/playstore-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.diegote78.appCoderReacNative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "98e0de43-26d2-451c-8c76-9e987261b30f"
+      }
     }
   }
 }

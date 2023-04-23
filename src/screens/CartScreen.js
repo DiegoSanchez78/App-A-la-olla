@@ -11,11 +11,9 @@ const CartScreen = () => {
   const total = useSelector(state=>state.cart.total)
   
   const onConfirm = () => {
-    console.log('confirm')
     dispatch(confirmCart(cart,total))
   }
   const onDelete = (itemId) => {
-    console.log('delete', itemId);
     dispatch(removeItem(itemId))
   }
   
@@ -72,7 +70,6 @@ const styles = StyleSheet.create({
   },
   text:{
     fontSize: 18,
-    // fontFamily: 'OpenSans_700Bold',
     padding: 8
   }
 })

@@ -15,7 +15,6 @@ const OrderScreen = () => {
       },[])
 
     const onDelete = (id) => {
-        console.log('delete')
         dispatch(deleteOrder(id))
     }
 

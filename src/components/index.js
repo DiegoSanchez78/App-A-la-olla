@@ -11,11 +11,6 @@ import Viandas from "../screens/Viandas";
 import Detail from "../screens/Detail";
 
 export{
-//     Header,
-//     List,
-//     pantalla1,
-//     pantalla2,
-//     ShowProductsSelected,
     AppNavigator,
     CategoriaViandas,
     Viandas,

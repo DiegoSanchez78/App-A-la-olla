@@ -22,18 +22,13 @@ const UserNavigator = () => {
         },
         headerTintColor: Platform.OS === 'android' ? 'white' : COLORS.primary,
         headerTitleStyle: {
-        //   fontFamily: 'OpenSans_700Bold'
         }
       }}
     >
       
       <Stack.Screen
         name="User"
-        component={UserListScreen}
-        // options={{
-        //   title: 'Usuario'
-          
-        // }}      
+        component={UserListScreen}  
         options={({ navigation }) => ({
           title: 'User',
           headerRight: () => (
